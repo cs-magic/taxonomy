@@ -13,7 +13,8 @@
     "start": "next start",
     "lint": "next lint",
     "preview": "next build && next start",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "db:push": "npx prisma db push"
   },
   "dependencies": {
     "@editorjs/code": "^2.8.0",

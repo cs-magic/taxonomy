@@ -30,6 +30,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false)
   const searchParams = useSearchParams()
+  
+  console.log('[UserAuthForm] ')
 
   async function onSubmit(data: FormData) {
     setIsLoading(true)
@@ -39,6 +41,9 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       redirect: false,
       callbackUrl: searchParams?.get("from") || "/dashboard",
     })
+    
+    // 发送邮件在客户端一般只要发出去了就表示成功，但是并不一定表示对方已经收到了邮件
+    console.log('[Sign In] ', signInResult)
 
     setIsLoading(false)
 
