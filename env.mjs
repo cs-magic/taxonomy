@@ -11,10 +11,14 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: z.string().min(1),
     GITHUB_ACCESS_TOKEN: z.string().min(1),
     DATABASE_URL: z.string().min(1),
-    SMTP_FROM: z.string().min(1),
+    
+    AWS_SMTP_SERVER: z.string().min(1),
+    AWS_SMTP_FROM: z.string().min(1),
+    POSTMARK_SMTP_FROM: z.string().min(1),
     POSTMARK_API_TOKEN: z.string().min(1),
     POSTMARK_SIGN_IN_TEMPLATE: z.string().min(1),
     POSTMARK_ACTIVATION_TEMPLATE: z.string().min(1),
+    
     STRIPE_API_KEY: z.string().min(1),
     STRIPE_WEBHOOK_SECRET: z.string().min(1),
     STRIPE_PRO_MONTHLY_PLAN_ID: z.string().min(1),
@@ -29,10 +33,14 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
     GITHUB_ACCESS_TOKEN: process.env.GITHUB_ACCESS_TOKEN,
     DATABASE_URL: process.env.DATABASE_URL,
-    SMTP_FROM: process.env.SMTP_FROM,
+    
+    AWS_SMTP_SERVER: process.env.AWS_SMTP_SERVER,
+    AWS_SMTP_FROM: process.env.AWS_SMTP_FROM,
+    POSTMARK_SMTP_FROM: process.env.POSTMARK_SMTP_FROM,
     POSTMARK_API_TOKEN: process.env.POSTMARK_API_TOKEN,
     POSTMARK_SIGN_IN_TEMPLATE: process.env.POSTMARK_SIGN_IN_TEMPLATE,
     POSTMARK_ACTIVATION_TEMPLATE: process.env.POSTMARK_ACTIVATION_TEMPLATE,
+    
     STRIPE_API_KEY: process.env.STRIPE_API_KEY,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     STRIPE_PRO_MONTHLY_PLAN_ID: process.env.STRIPE_PRO_MONTHLY_PLAN_ID,
