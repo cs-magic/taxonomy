@@ -40,8 +40,17 @@ export async function GET(req: Request) {
 		const stripeSession = await stripe.checkout.sessions.create({
 			success_url: billingUrl,
 			cancel_url: billingUrl,
-			payment_method_types: ['card'],
-			mode: 'subscription',
+			payment_method_types: [
+				'alipay',
+				'wechat_pay',
+				// 'card'
+			],
+			payment_method_options: {
+				wechat_pay: {
+					client: 'web'
+				}
+			},
+			mode: 'payment',
 			billing_address_collection: 'auto',
 			customer_email: session.user.email,
 			line_items: [
@@ -58,6 +67,7 @@ export async function GET(req: Request) {
 		
 		return new Response(JSON.stringify({ url: stripeSession.url }))
 	} catch (error) {
+		console.log('[stripe] ', { error })
 		if (error instanceof z.ZodError) {
 			return new Response(JSON.stringify(error.issues), { status: 422 })
 		}

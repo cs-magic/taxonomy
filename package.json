@@ -6,6 +6,7 @@
     "name": "shadcn",
     "url": "https://twitter.com/shadcn"
   },
+  "proxy": "http://localhost:7890",
   "scripts": {
     "dev": "concurrently \"contentlayer dev\" \"next dev\"",
     "build": "contentlayer build && next build",
@@ -83,7 +84,7 @@
     "react-textarea-autosize": "^8.4.1",
     "sharp": "^0.31.3",
     "shiki": "^0.11.1",
-    "stripe": "^11.18.0",
+    "stripe": "^12.17.0",
     "tailwind-merge": "^1.12.0",
     "tailwindcss-animate": "^1.0.5",
     "zod": "^3.21.4"
